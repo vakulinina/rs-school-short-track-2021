@@ -2,7 +2,7 @@
  * Given a number, replace this number with
  * the sum of its digits until we get to a one digit number.
  *
- * @param {Number} n
+ * @param {Number} number
  * @return {Number}
  *
  * @example
@@ -10,8 +10,10 @@
  * For 91, the result should be 1 (9 + 1 = 10, 1 + 0 = 1)
  *
  */
-function getSumOfDigits(/* n */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(number) {
+  if (number.toString().length === 1) return number;
+
+  return getSumOfDigits(number.toString().split('').reduce((acc, value) => +value + acc, 0));
 }
 
 module.exports = getSumOfDigits;
